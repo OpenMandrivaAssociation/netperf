@@ -1,32 +1,49 @@
 %define name netperf
-%define version 2.4.2
-%define release %mkrel 2
-Name: %name
-Version: %version
-Summary: Performance testing tool for TCP/UDP
-Release: %release
-License: BSD
-Group: Networking/Other
-Source: ftp://ftp.cup.hp.com/dist/networking/benchmarks/netperf/%name-%version.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
-URL: http://www.netperf.org/netperf/NetperfPage.html 
+%define version 2.4.4
+%define release %mkrel 1
+
+Summary:	Performance testing tool for TCP/UDP
+Name:		netperf
+Version:	2.4.4
+Release:	%mkrel 1
+License:	BSD
+Group:		Networking/Other
+URL:		http://www.netperf.org/netperf/NetperfPage.html 
+Source:		ftp://ftp.cup.hp.com/dist/networking/benchmarks/netperf/%name-%version.tar.bz2
+Patch0:		CVE-2007-1444.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
-Netperf is a tool for measure TCP/UDP speeds
+Netperf is a benchmark that can be used to measure the performance 
+of many different types of networking. It provides tests for both 
+unidirecitonal throughput, and end-to-end latency.
+
+The environments currently measureable by netperf include:
+
+* TCP and UDP via BSD Sockets for both IPv4 and IPv6
+* DLPI
+* Unix Domain Sockets
+* SCTP for both IPv4 and IPv6 
 
 %prep
 %setup -q 
+#%patch0 -p1
 
 %build
-%configure
+%configure2_5x \
+	--enable-unixdomain \
+	--enable-sdp \
+	--enable-exs \
+	--enable-sctp
 %make 
 
 %install
-rm -rf $RPM_BUILDROOT
-%makeinstall
+rm -rf %{buildroot}
+
+%makeinstall_std
 
 %clean
-rm -rf $RPM_BUILDROOT
+rm -rf %{buildroot}
 
 %preun
 %_remove_install_info %{name}.info
@@ -34,16 +51,14 @@ rm -rf $RPM_BUILDROOT
 %post
 %_install_info %{name}.info
 
+%postun
+%_remove_install_info %{name}.info
+
 %files
-%defattr(0644,root,root,0755)
-%attr(0755,root,root) %{_bindir}/netperf
-%attr(0755,root,root) %{_bindir}/netserver
+%defattr(-,root,root)
+%doc README AUTHORS COPYING Release_Notes
+%{_bindir}/netperf
+%{_bindir}/netserver
 %{_infodir}/netperf.*
 %{_mandir}/man1/netperf.1*
 %{_mandir}/man1/netserver.1*
-
-%doc README
-%doc COPYING
-%doc Release_Notes
-
-
