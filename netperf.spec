@@ -10,7 +10,6 @@ License:	BSD
 Group:		Networking/Other
 URL:		http://www.netperf.org/netperf/NetperfPage.html 
 Source:		ftp://ftp.cup.hp.com/dist/networking/benchmarks/netperf/%name-%version.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Netperf is a benchmark that can be used to measure the performance 
