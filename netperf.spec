@@ -10,6 +10,7 @@ License:	BSD
 Group:		Networking/Other
 URL:		http://www.netperf.org/netperf/NetperfPage.html 
 Source:		ftp://ftp.cup.hp.com/dist/networking/benchmarks/netperf/%name-%version.tar.bz2
+Patch0:		netperf-2.4.4-add-missing-info-dir-section.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
@@ -26,6 +27,7 @@ The environments currently measureable by netperf include:
 
 %prep
 %setup -q 
+%patch0 -p1 -b .dir-section
 
 %build
 %configure2_5x \
