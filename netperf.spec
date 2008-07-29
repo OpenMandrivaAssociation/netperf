@@ -1,11 +1,11 @@
 %define name netperf
 %define version 2.4.4
-%define release %mkrel 1
+%define release %mkrel 3
 
 Summary:	Performance testing tool for TCP/UDP
 Name:		netperf
 Version:	2.4.4
-Release:	%mkrel 1
+Release:	%mkrel 3
 License:	BSD
 Group:		Networking/Other
 URL:		http://www.netperf.org/netperf/NetperfPage.html 
