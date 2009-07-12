@@ -1,16 +1,17 @@
 %define name netperf
-%define version 2.4.4
-%define release %mkrel 3
+%define version 2.4.5
+%define release %mkrel 1
 
 Summary:	Performance testing tool for TCP/UDP
-Name:		netperf
-Version:	2.4.4
-Release:	%mkrel 3
+Name:		%name
+Version:	%version
+Release:	%release
 License:	BSD
 Group:		Networking/Other
 URL:		http://www.netperf.org/netperf/NetperfPage.html 
-Source:		ftp://ftp.cup.hp.com/dist/networking/benchmarks/netperf/%name-%version.tar.bz2
+Source:		ftp://ftp.netperf.org/netperf/%name-%version.tar.bz2
 Patch0:		netperf-2.4.4-add-missing-info-dir-section.patch
+Patch1:		netperf-2.4.5-gcc-fix.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
@@ -28,6 +29,7 @@ The environments currently measureable by netperf include:
 %prep
 %setup -q 
 %patch0 -p1 -b .dir-section
+%patch1 -p1 -b .gcc
 
 %build
 %configure2_5x \
