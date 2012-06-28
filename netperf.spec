@@ -1,6 +1,6 @@
 %define name netperf
-%define version 2.5.0
-%define release %mkrel 1
+%define version 2.6.0
+%define release 1
 
 Summary:	Performance testing tool for TCP/UDP
 Name:		%name
@@ -9,8 +9,7 @@ Release:	%release
 License:	BSD
 Group:		Networking/Other
 URL:		http://www.netperf.org/netperf/NetperfPage.html 
-Source:		ftp://ftp.netperf.org/netperf/%name-%version.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+Source0:	ftp://ftp.netperf.org/netperf/%name-%version.tar.bz2
 
 %description
 Netperf is a benchmark that can be used to measure the performance 
@@ -36,12 +35,7 @@ The environments currently measureable by netperf include:
 %make 
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
 
 %preun
 %_remove_install_info %{name}.info
@@ -53,7 +47,6 @@ rm -rf %{buildroot}
 %_remove_install_info %{name}.info
 
 %files
-%defattr(-,root,root)
 %doc README AUTHORS COPYING Release_Notes
 %{_bindir}/netperf
 %{_bindir}/netserver
