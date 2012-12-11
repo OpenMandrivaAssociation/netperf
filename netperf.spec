@@ -53,3 +53,38 @@ The environments currently measureable by netperf include:
 %{_infodir}/netperf.*
 %{_mandir}/man1/netperf.1*
 %{_mandir}/man1/netserver.1*
+
+
+%changelog
+* Thu Jun 28 2012 Alexander Khrukin <akhrukin@mandriva.org> 2.6.0-1
++ Revision: 807376
+- version update 2.6.0
+
+* Wed Jul 20 2011 Bruno Cornec <bcornec@mandriva.org> 2.5.0-1
++ Revision: 690746
+- Add upstream sources 2.5.0
+- Update to upstream netperf 2.5.0
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - the mass rebuild of 2010.0 packages
+
+* Sun Jul 12 2009 Bruno Cornec <bcornec@mandriva.org> 2.4.5-1mdv2010.0
++ Revision: 394969
+- Update to upstream 2.4.5 and fix compiler errors on fprintf format (reported upstrem)
+- Update netperf to 2.4.5 and fix compiler issues (reported upstream)
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - fix info file
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+* Fri Oct 19 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 2.4.4-1mdv2008.1
++ Revision: 100087
+- new version
+- spec file clean
+
