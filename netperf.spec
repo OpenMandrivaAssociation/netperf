@@ -1,6 +1,6 @@
 %define name netperf
 %define version 2.6.0
-%define release 1
+%define release  2
 
 Summary:	Performance testing tool for TCP/UDP
 Name:		%name
