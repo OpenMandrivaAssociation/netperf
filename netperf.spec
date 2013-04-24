@@ -37,8 +37,6 @@ The environments currently measureable by netperf include:
 %install
 %makeinstall_std
 
-%preun
-%_remove_install_info %{name}.info
 
 
 
