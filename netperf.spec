@@ -40,8 +40,6 @@ The environments currently measureable by netperf include:
 %preun
 %_remove_install_info %{name}.info
 
-%post
-%_install_info %{name}.info
 
 %postun
 %_remove_install_info %{name}.info
