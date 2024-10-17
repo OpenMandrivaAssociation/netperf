@@ -8,7 +8,7 @@ Version:	%version
 Release:	%release
 License:	BSD
 Group:		Networking/Other
-URL:		http://www.netperf.org/netperf/NetperfPage.html 
+URL:		https://www.netperf.org/netperf/NetperfPage.html 
 Source0:	ftp://ftp.netperf.org/netperf/%name-%version.tar.bz2
 
 %description
